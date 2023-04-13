@@ -2,22 +2,25 @@ package src.main.java.schedule_maker;
 
 import java.util.Scanner;
 
+import src.main.java.schedule_maker.flow.Picker;
+import src.main.java.schedule_maker.flow.Printers;
 import src.main.java.schedule_maker.model.Classes;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 
-/**
- * ScheduleMaker is a Java program that allows users to manage their class schedules
- * and appointments. Users can add, edit, delete, and view their class schedule, as well
- * as create and view appointments. The program stores the class schedule and appointment
- * information in text files for easy retrieval.
+/** Main.java
+ *  ScheduleMaker is a Java program that allows users to manage their class schedules
+ *  and appointments. Users can add, edit, delete, and view their class schedule, as well
+ *  as create and view appointments. The program stores the class schedule and appointment
+ *  information in text files for easy retrieval.
  *
- * The program consists of several classes that handle different functionalities such as
- * creating, editing, and displaying class schedules, managing appointments, and providing
- * user interfaces for user interactions.
+ *  The program consists of several classes that handle different functionalities such as
+ *  creating, editing, and displaying class schedules, managing appointments, and providing
+ *  user interfaces for user interactions.
  */
 
-public class ScheduleMaker {
+public class Main {
 
     public static void main(String[] args) throws IOException {
         // Opens scanner that allows the user to answer questions
@@ -49,7 +52,7 @@ public class ScheduleMaker {
         }
         
         // Calls the welcome() method and initializes the courses File object
-        Welcome.welcome(file, name, sem, year);
+        Printers.welcome(file, name, sem, year);
         Scanner read = new Scanner(file);
 
         // Creates an array of Classes with a length of 10
@@ -71,6 +74,6 @@ public class ScheduleMaker {
 
             Picker.pick(selection, f, count, name, year, sem);
         } while (loop);
-    }// End of main
+    }
 
 }

@@ -1,17 +1,18 @@
-package src.main.java.schedule_maker;
+package src.main.java.schedule_maker.flow;
 
-/**
- * Askers.java
- * This class contains utility methods for asking user input for specific data types.
- */
 import java.util.Scanner;
 
- public class Askers {
+/** AskTime.java
+ * 
+ *  This class contains utility methods for asking user input for specific data types.
+ * 
+ */
+public class AskTime {
 
-    /**
-     * Prompts the user for a time input in the format of hour, minute, and AM/PM.
+    /** ANCHOR: ASK TIME
+     *  Prompts the user for a time input in the format of hour, minute, and AM/PM.
      *
-     * @return A string representation of the time entered by the user
+     *  @return A string representation of the time entered by the user
      */
     public static String askTime() {
         Scanner scan = new Scanner(System.in);

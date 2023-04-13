@@ -1,12 +1,18 @@
-Name
-Prof
-Link 202
-10:20 AM
-12:00 PM
-M-WT-
 ECS 101
 Lee
 Link 202
 10:30 AM
 12:00 PM
 MT-TF
+Spa
+a
+XXX
+10:11 PM
+12:00 AM
+T---
+null
+null
+null
+null
+null
+null

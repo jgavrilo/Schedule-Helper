@@ -1,9 +1,11 @@
 package src.main.java.schedule_maker.model;
+
 /** Appointment.java
  *
  *  This class represents an appointment with a name, location, start and end time, and day.
  *
  */
+
 public class Appointment {
 
   // Instance variables to hold appointment information

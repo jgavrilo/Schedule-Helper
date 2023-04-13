@@ -1,2 +1,2 @@
 #!/bin/bash
-java -cp bin src.main.java.schedule_maker.ScheduleMaker
+java -cp bin src.main.java.schedule_maker.Main
