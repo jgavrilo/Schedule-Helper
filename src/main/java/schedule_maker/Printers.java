@@ -52,19 +52,23 @@ public class Printers {
           System.out.println("You currently have " + count + " classes listed");
 
           for (int a = 0; a < 5; a++) {
-              System.out.println("------------------------------------" + "\n" + DoW[a]);
-              for (int i = 0; i < count; i++) {
-                  day = cl[i].getDays();
-                  d = day.charAt(a);
-
-                  if (d == DoW[a].charAt(0)) {
-                      System.out.println("\nClass: " + cl[i].getName());
-                      System.out.println("Prof: " + cl[i].getProf());
-                      System.out.println("Room: " + cl[i].getRoom());
-                      System.out.println(cl[i].getStartTime() + " - " + cl[i].getEndTime() + "\n");
-                  }
-              }
-          }
+            System.out.println("------------------------------------" + "\n" + DoW[a]);
+            for (int i = 0; i <= count - 1; i++) {
+                day = cl[i].getDays();
+        
+                for (int j = 0; j < day.length(); j++) {
+                    d = day.charAt(j);
+        
+                    if (d == DoW[a].charAt(0)) {
+                        System.out.println("\nClass: " + cl[i].getName());
+                        System.out.println("Prof: " + cl[i].getProf());
+                        System.out.println("Room: " + cl[i].getRoom());
+                        System.out.println(cl[i].getStartTime() + " - " + cl[i].getEndTime() + "\n");
+                    }
+                }
+            }
+        }
+        
       }
     }
 

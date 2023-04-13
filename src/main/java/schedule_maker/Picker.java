@@ -7,7 +7,9 @@ package src.main.java.schedule_maker;
 import java.io.*;
 
 import src.main.java.schedule_maker.model.Appointment;
+import src.main.java.schedule_maker.model.AppointmentManager;
 import src.main.java.schedule_maker.model.Classes;
+import src.main.java.schedule_maker.model.ClassesManager;
 public class Picker {
 
     /**
@@ -23,26 +25,26 @@ public class Picker {
      */
     public static void pick(char selection, File f, int count, String name, String year, String sem) throws IOException {
         Appointment[] app;
-        Classes[] classes = Classes.readClasses(f);
-        count = Classes.counterClass(f);
+        Classes[] classes = ClassesManager.readClasses(f);
+        count = ClassesManager.counterClass(f);
 
         switch (selection) {
             case 'a':
             case 'A':
-                Classes.addAClass(classes, count);
-                Classes.updateClasses(classes, count, name, sem, year);
+                ClassesManager.addAClass(classes, count);
+                ClassesManager.updateClasses(classes, count, name, sem, year);
                 break;
 
             case 'b':
             case 'B':
-                classes = Classes.dropAClass(f, count, classes);
-                Classes.updateClasses(classes, --count, name, sem, year);
+                classes = ClassesManager.dropAClass(f, count, classes);
+                ClassesManager.updateClasses(classes, --count, name, sem, year);
                 break;
 
             case 'c':
             case 'C':
-                classes = Classes.editClass(classes, count);
-                Classes.updateClasses(classes, count, name, sem, year);
+                classes = ClassesManager.editClass(classes, count);
+                ClassesManager.updateClasses(classes, count, name, sem, year);
                 break;
 
             case 'd':
@@ -54,8 +56,8 @@ public class Picker {
             case 'E':
                 f = new File(name + "Appointments.txt");
                 f.createNewFile();
-                count = Appointment.counterApp(f);
-                app = Appointment.makeAppointment(Appointment.appointments(name, count), count);
+                count = AppointmentManager.counterApp(f);
+                app = AppointmentManager.makeAppointment(AppointmentManager.appointments(name, count), count);
                 Printers.appPrint(app, count, f);
                 break;
 
@@ -65,8 +67,8 @@ public class Picker {
                 if (!(f.exists())) {
                     System.out.println("It looks like you dont have any appointments, please make one to view them");
                 } else {
-                    count = Appointment.counterApp(f);
-                    app = Appointment.appointments(name, count);
+                    count = AppointmentManager.counterApp(f);
+                    app = AppointmentManager.appointments(name, count);
                     Printers.viewApps(app, count, f);
                 }
                 break;
