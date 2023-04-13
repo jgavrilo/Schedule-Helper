@@ -1,3 +1,4 @@
+package src.main.java.schedule_maker;
 import java.util.*;
 import java.util.Scanner;
 import java.io.*;
@@ -39,7 +40,7 @@ public class Final
     read = new Scanner(courses);
     
     //Fills up a course with info
-    fills(classes, count, read);
+    Printers.fills(classes, count, read);
     
     //Resets file
     read.close();
@@ -50,8 +51,8 @@ public class Final
     //Has its own exit option
     boolean loop = true;
     do {
-    mainMenu();
-    char selection = scan.next().charAt(0);
+      Printers.mainMenu();
+      char selection = scan.next().charAt(0);
     
     pick(selection, f, count, name, year, sem);
     } while (loop); 
@@ -80,7 +81,7 @@ public class Final
       else if ((user.equalsIgnoreCase("No")) || (user.charAt(0) == 'n') || (user.charAt(0) == 'N'))
         User = -1;
       else 
-        IDidNotUnderstand();
+      Printers.IDidNotUnderstand();
     }//End of while loop
     file = "";
     if (User == -1)
@@ -106,7 +107,7 @@ public class Final
     File info = new File(name+semester+year);
     
     while (!(info.exists())){
-      IDidNotUnderstand();
+      Printers.IDidNotUnderstand();
       System.out.println("What's your name?");
       name = scan.nextLine();
       System.out.println("What semester is it?(Fall/Spring/Summer)?");
@@ -169,7 +170,7 @@ public class Final
         f = new File(name + "Appointments.txt");
         if (!(f.exists())){
           System.out.println("It looks like you dont have any appointments, please make one to view them");
-          mainMenu();}
+          Printers.mainMenu();}
         else {
         count = counterApp(f);
         app = appointments(name, count);
@@ -187,40 +188,6 @@ public class Final
   {
     System.exit(0);
   }//End of quit
-    
-  // Methods that print *******************************************
-    
-  public static void mainMenu()
-  {
-    Scanner scan = new Scanner(System.in);
-    System.out.println("What would you like to do today?");
-    char let = 'A';
-    System.out.println("MENU:");
-    System.out.println(let++ + ") Add a class");
-    System.out.println(let++ + ") Drop a class");
-    System.out.println(let++ + ") Edit course info");
-    System.out.println(let++ + ") View Schedule");
-    System.out.println(let++ + ") Set up appointment");
-    System.out.println(let++ + ") View appointments");
-    System.out.println(let + ") Log out");
-  }//End of selections
-  
-  public static void IDidNotUnderstand()
-  {
-    System.out.println("I did not understand the command you were trying to do"
-                         + ", please try again");
-  }//End of IDidNotUnderstand
-  
-  public static Classes[] fills(Classes classes[], int count, Scanner scan)
-  {
-    for(int i = 0; i < count; i++)//Fills array with empty classes
-      classes[i] = new Classes();
-    
-    for(int a = 0; a < count; a++)//Fills array from file
-      classes[a].reader(scan);
-    
-    return classes;
-  }//End of Fill
   
   // Add A Class  *************************************************
     
@@ -551,7 +518,7 @@ public static Classes[] editClass(Classes[] cl, int count)
       loop = false;
       break;
       default:
-      IDidNotUnderstand();
+      Printers.IDidNotUnderstand();
       break;
      }
     }while(loop);

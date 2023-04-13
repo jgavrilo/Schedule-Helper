@@ -4,7 +4,7 @@
  *  These methods are separated from the main program to keep the code organized and modular.
  * 
  */
-
+package src.main.java.schedule_maker;
 import java.util.Scanner;
 
 public class Printers {

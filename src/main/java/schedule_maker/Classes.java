@@ -1,3 +1,4 @@
+package src.main.java.schedule_maker;
 /** Classes.java 
  * 
  *  This class represents a class with a name, professor, room number, start and end time, and days of the week.
