@@ -12,37 +12,34 @@ import java.util.Scanner;
  */
 public class Welcome {
 
-/**
- * Greets the user with a random welcome message.
- *
- * @param file     The file's name
- * @param name     The user's name
- * @param semester The semester the user wants to view
- * @param year     The year the user wants to view
- * @return The file name based on the user's input
- * @throws IOException If an input or output exception occurs
- */
-public static String welcome(String file, String name, String semester, String year) throws IOException {
-    Random rand = new Random();
-    int x = rand.nextInt(4); // Change the argument to 4 to include all cases from 0 to 3
+    /**
+     * Greets the user with a random welcome message.
+     *
+     * @param file     The file's name
+     * @param name     The user's name
+     * @param semester The semester the user wants to view
+     * @param year     The year the user wants to view
+     * @throws IOException If an input or output exception occurs
+     */
+    public static void welcome(String file, String name, String semester, String year) throws IOException {
+        Random rand = new Random();
+        int x = rand.nextInt(4); // Change the argument to 4 to include all cases from 0 to 3
 
-    switch (x) {
-        case 0:
-            System.out.println("Hello, welcome to Schedule Helper!");
-            break;
-        case 1:
-            System.out.println("Are classes getting you down?");
-            break;
-        case 2:
-            System.out.println("You know what they say, I don’t know what they say…");
-            break;
-        case 3:
-            System.out.println("Don’t you wish the semester was over?");
-            break;
-    }//End of switch statement
-
-    return file;
-}//End of welcome
+        switch (x) {
+            case 0:
+                System.out.println("Hello, welcome to Schedule Helper!");
+                break;
+            case 1:
+                System.out.println("Are classes getting you down?");
+                break;
+            case 2:
+                System.out.println("You know what they say, I don’t know what they say…");
+                break;
+            case 3:
+                System.out.println("Don’t you wish the semester was over?");
+                break;
+        }
+    }
 
 
     /**

@@ -1,4 +1,4 @@
-package src.main.java.schedule_maker;
+package src.main.java.schedule_maker.model;
 /** Classes.java 
  * 
  *  This class represents a class with a name, professor, room number, start and end time, and days of the week.
@@ -6,6 +6,10 @@ package src.main.java.schedule_maker;
  */
 
 import java.util.Scanner;
+
+import src.main.java.schedule_maker.Askers;
+import src.main.java.schedule_maker.Printers;
+
 import java.io.*;
 public class Classes {
   

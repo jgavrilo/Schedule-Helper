@@ -5,6 +5,9 @@ package src.main.java.schedule_maker;
  * editing classes, printing schedules, managing appointments, and quitting the program.
  */
 import java.io.*;
+
+import src.main.java.schedule_maker.model.Appointment;
+import src.main.java.schedule_maker.model.Classes;
 public class Picker {
 
     /**
@@ -61,7 +64,6 @@ public class Picker {
                 f = new File(name + "Appointments.txt");
                 if (!(f.exists())) {
                     System.out.println("It looks like you dont have any appointments, please make one to view them");
-                    Printers.mainMenu();
                 } else {
                     count = Appointment.counterApp(f);
                     app = Appointment.appointments(name, count);

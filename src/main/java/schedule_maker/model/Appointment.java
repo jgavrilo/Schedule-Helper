@@ -1,10 +1,13 @@
-package src.main.java.schedule_maker;
+package src.main.java.schedule_maker.model;
 /** Appointment.java
  *
  *  This class represents an appointment with a name, location, start and end time, and day.
  *
  */
 import java.util.Scanner;
+
+import src.main.java.schedule_maker.Askers;
+
 import java.io.*;
 
 public class Appointment {

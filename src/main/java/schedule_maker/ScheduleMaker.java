@@ -1,6 +1,9 @@
 package src.main.java.schedule_maker;
 
 import java.util.Scanner;
+
+import src.main.java.schedule_maker.model.Classes;
+
 import java.io.*;
 
 /**
@@ -46,8 +49,8 @@ public class ScheduleMaker {
         }
         
         // Calls the welcome() method and initializes the courses File object
-        File courses = new File(Welcome.welcome(file, name, sem, year));
-        Scanner read = new Scanner(courses);
+        Welcome.welcome(file, name, sem, year);
+        Scanner read = new Scanner(file);
 
         // Creates an array of Classes with a length of 10
         Classes[] classes = new Classes[10];
@@ -57,7 +60,7 @@ public class ScheduleMaker {
 
         // Resets the file scanner
         read.close();
-        read = new Scanner(courses);
+        read = new Scanner(file);
 
         // Loop for the main menu and its options
         // This loop never ends because the mainMenu has its own exit option

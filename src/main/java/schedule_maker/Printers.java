@@ -6,6 +6,10 @@
  */
 package src.main.java.schedule_maker;
 import java.util.Scanner;
+
+import src.main.java.schedule_maker.model.Appointment;
+import src.main.java.schedule_maker.model.Classes;
+
 import java.io.*;
 
 public class Printers {
