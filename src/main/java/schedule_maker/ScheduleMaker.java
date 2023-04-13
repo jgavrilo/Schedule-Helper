@@ -37,6 +37,14 @@ public class ScheduleMaker {
         String file = name + sem + year + ".txt";
         File f = new File(file);
 
+        // Check if the file exists
+        if (f.exists()) {
+          System.out.println("Welcome back, " + name + "! Your schedule for " + sem + " " + year + " has been loaded.");
+        } else {
+            System.out.println("You must be a new user. Creating a new schedule for " + sem + " " + year + ".");
+            f.createNewFile();
+        }
+        
         // Calls the welcome() method and initializes the courses File object
         File courses = new File(Welcome.welcome(file, name, sem, year));
         Scanner read = new Scanner(courses);
