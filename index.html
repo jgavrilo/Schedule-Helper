@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Java Project</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <script src="https://cdn.jsdelivr.net/npm/xterm@3.14.5/dist/xterm.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/xterm@3.14.5/dist/xterm.css" rel="stylesheet" />
-  <script>
-    var term = new Terminal();
-    term.open(document.getElementById("terminal"));
-    // Replace "your-command-here" with the command to start your Java program
-    term.write("./run.sh\r");
-    term.on('data', function(data) {
-      // Replace "your-command-here" with the command to start your Java program
-      term.write("./run.sh\r");
-    });
-  </script>
+    <meta charset="UTF-8">
+    <title>Java Terminal</title>
+    <style>
+        #terminal-container {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #terminal {
+            height: 100%;
+        }
+    </style>
 </head>
+
 <body>
-  <div id="terminal"></div>
+    <div id="terminal-container">
+        <div id="terminal"></div>
+    </div>
+    <script src="xterm.js"></script>
+    <script>
+        var term = new Terminal({
+            cursorBlink: true
+        });
+
+        term.open(document.getElementById('terminal'));
+
+        // Connect to backend
+        var socket = new WebSocket('ws://' + window.location.hostname + ':8080');
+        socket.addEventListener('open', function (event) {
+            term.write('\x1b[32m' + 'Connected to backend!' + '\x1b[0m\r\n');
+        });
+
+        // Send input to backend
+        term.onData(function (data) {
+            socket.send(data);
+        });
+
+        // Receive output from backend
+        socket.addEventListener('message', function (event) {
+            term.write(event.data);
+        });
+    </script>
 </body>
+
 </html>
