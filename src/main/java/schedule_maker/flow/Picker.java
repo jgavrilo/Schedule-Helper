@@ -57,13 +57,13 @@ public class Picker {
                 Printers.printSchedule(classes, count);
                 break;
 
+            // TODO: There are bugs invloving the storage of appointments
             case 'e':
             case 'E':
-                f = new File(name + "Appointments.txt");
-                f.createNewFile();
-                count = AppointmentManager.counterApp(f);
-                app = AppointmentManager.makeAppointment(AppointmentManager.appointments(name, count), count);
-                Printers.printApps(app, count, f);
+                String fileName = name + "Appointments.txt";
+                count = AppointmentManager.counterApp(new File(fileName));
+                app = AppointmentManager.makeAppointment(AppointmentManager.appointments(name, count), count, fileName);
+                Printers.printApps(app, count, new File(fileName));
                 break;
 
             case 'f':

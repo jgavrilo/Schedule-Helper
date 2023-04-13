@@ -5,6 +5,7 @@ import src.main.java.schedule_maker.model.Appointment;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
+import java.io.FileWriter;
 
 /** AppointmentManager.java
  * 
@@ -58,7 +59,7 @@ public class AppointmentManager {
      *  @param count The current number of appointments in the array.
      *  @return The updated array of Appointment objects with the new appointment added.
      */
-    public static Appointment[] makeAppointment(Appointment[] app, int count) {
+    public static Appointment[] makeAppointment(Appointment[] app, int count, String fileName) {
         Scanner scan = new Scanner(System.in);
         String name, place, startTime, endTime, date;
         boolean loop = true;
@@ -97,6 +98,24 @@ public class AppointmentManager {
             app[count].setStartTime(startTime);
             app[count].setEndTime(endTime);
             app[count].setDay(date);
+
+            // Check if the file exists and create it if it doesn't
+            File file = new File(fileName);
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    System.err.println("Error while creating the appointments file: " + e.getMessage());
+                }
+            }
+
+            // Add the appointment info to the file
+            try (FileWriter writer = new FileWriter(file, true)) {
+                String appointmentInfo = String.join("\n", name, place, startTime, endTime, date) + "\n\n";
+                writer.write(appointmentInfo);
+            } catch (IOException e) {
+                System.err.println("Error while handling the appointments file: " + e.getMessage());
+            }
 
             return app;
         }
