@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Java Project</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/xterm@3.14.5/dist/xterm.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/xterm@3.14.5/dist/xterm.css" rel="stylesheet" />
+  <script>
+    var term = new Terminal();
+    term.open(document.getElementById("terminal"));
+    // Replace "your-command-here" with the command to start your Java program
+    term.write("./run.sh\r");
+    term.on('data', function(data) {
+      // Replace "your-command-here" with the command to start your Java program
+      term.write("./run.sh\r");
+    });
+  </script>
+</head>
+<body>
+  <div id="terminal"></div>
+</body>
+</html>
