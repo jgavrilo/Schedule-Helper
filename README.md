@@ -14,8 +14,9 @@ Schedule Helper is a Java-based command line application designed to assist stud
 1. Clone the repository to your local machine or visit the project on [Replit](https://replit.com/).
 2. Open the project in Visual Studio Code or use the Replit IDE.
 3. If you made any changes, run `javac -d bin src/main/java/schedule_maker/*.java` to compile the updated Java files.
-4. Run the project using `./run.sh`.
-5. Follow the prompts to use the application.
+4. If on Replit IDE, click run and wait for "Hello World!" to appear.
+5. Run the project using `./run.sh`.
+6. Follow the prompts to use the application.
 
 ## Features
 
