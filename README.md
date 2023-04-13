@@ -1,4 +1,4 @@
-[![Demo Button](https://img.shields.io/badge/-Demo-blue)](<insert link to the demo>)
+[![Demo Button](https://img.shields.io/badge/DEMO-blueviolet?style=for-the-badge&logo=replit)](<insert link to the demo>)
 
 # Schedule Helper
 
