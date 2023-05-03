@@ -36,11 +36,11 @@ Check out the demo of Schedule Helper in action using the terminal [![here](http
 
 ## Contributions
 
-We welcome contributions to Schedule Helper! If you would like to contribute, please follow these steps:
+Contributions are welcome to Schedule Helper! If you would like to contribute, please follow these steps:
 
 1. Fork the repository or clone the project on Replit.
 2. Make your changes.
 3. Run `javac -d bin src/main/java/schedule_maker/*.java` to compile the updated Java files.
 4. Submit a pull request with a description of your changes or share the updated Replit project link.
 
-Thank you for your interest in improving Schedule Helper and supporting ECS 102 - Intro to Computer Science projects!
+Thank you for your interest in improving Schedule Helper and supporting the evolution of school projects!
