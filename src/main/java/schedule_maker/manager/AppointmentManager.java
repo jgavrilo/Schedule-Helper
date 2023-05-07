@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 /** AppointmentManager.java
  * 
@@ -93,26 +94,32 @@ public class AppointmentManager {
                 System.out.println("Let's try this again..."); } 
             } while (loop);
 
+            // Set the appointment properties
             app[count].setName(name);
             app[count].setPlace(place);
             app[count].setStartTime(startTime);
             app[count].setEndTime(endTime);
             app[count].setDay(date);
 
-            // Check if the file exists and create it if it doesn't
+            // Grab File instance
             File file = new File(fileName);
-            if (!file.exists()) {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    System.err.println("Error while creating the appointments file: " + e.getMessage());
-                }
-            }
 
             // Add the appointment info to the file
-            try (FileWriter writer = new FileWriter(file, true)) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+                // Combine the appointment properties with line breaks, then add an extra line break for separation
                 String appointmentInfo = String.join("\n", name, place, startTime, endTime, date) + "\n\n";
+
+                // Print the appointmentInfo variable to make sure it's correctly formatted
+                System.out.println("Appointment info to be written:\n" + appointmentInfo);
+
+                // Write the appointment information to the file
                 writer.write(appointmentInfo);
+
+                // Explicitly flush and close the BufferedWriter
+                writer.flush();
+                writer.close();
+
+                System.out.println("Appointment info successfully written to the file.");
             } catch (IOException e) {
                 System.err.println("Error while handling the appointments file: " + e.getMessage());
             }
@@ -121,24 +128,25 @@ public class AppointmentManager {
         }
 
     /** ANCHOR: Count Appointments
-     *  This method counts the number of appointments in a file.
-     *
-     *  @param f The file containing appointment data.
-     *  @return The number of appointments in the file.
-     *  @throws IOException If there is an issue with file input/output.
-     */
+    *  This method counts the number of appointments in a file.
+    *
+    *  @param f The file containing appointment data.
+    *  @return The number of appointments in the file.
+    *  @throws IOException If there is an issue with file input/output.
+    */
     public static int counterApp(File f) throws IOException {
         Scanner reader = new Scanner(f);
         int count = 0;
 
-        while (reader.hasNext() && !(reader.nextLine().equals("null"))) {
-            reader.nextLine();
-            reader.nextLine();
-            reader.nextLine();
-            reader.nextLine();
-            count++;
+        while (reader.hasNextLine()) {
+            String line = reader.nextLine();
+            if (line.trim().isEmpty()) {
+                count++;
+            }
         }
 
+        reader.close();
         return count;
     }
+
 }

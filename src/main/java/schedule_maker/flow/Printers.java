@@ -115,7 +115,7 @@ public class Printers {
         System.out.println("These are the appointments you've already set up:");
 
         // Iterate through each appointment and display its information
-        for (int i = 0; i <= count; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.println("Event: " + app[i].getName());
             System.out.println("Place: " + app[i].getPlace());
             System.out.print("Time: " + app[i].getStartTime() + " - ");

@@ -57,13 +57,34 @@ public class Picker {
                 Printers.printSchedule(classes, count);
                 break;
 
-            // TODO: There are bugs invloving the storage of appointments
             case 'e':
             case 'E':
+                // Combine the name with the filename for appointment storage
                 String fileName = name + "Appointments.txt";
-                count = AppointmentManager.counterApp(new File(fileName));
+
+                File appointmentFile = new File(fileName);
+                System.out.println("File: " + appointmentFile.getName());
+
+                // Check if the file exists, if not, create it
+                if (!appointmentFile.exists()) {
+                    try {
+                        if (appointmentFile.createNewFile()) {
+                            System.out.println("File created: " + appointmentFile.getName());
+                        } else {
+                            System.out.println("File already exists.");
+                        }
+                    } catch (IOException e) {
+                        System.out.println("An error occurred while creating the file.");
+                        e.printStackTrace();
+                    }
+                }
+
+                // Get the count of appointments from the file
+                count = AppointmentManager.counterApp(appointmentFile);
+
+                // Create a new appointment and store it in the file
                 app = AppointmentManager.makeAppointment(AppointmentManager.appointments(name, count), count, fileName);
-                Printers.printApps(app, count, new File(fileName));
+
                 break;
 
             case 'f':
