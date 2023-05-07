@@ -1,4 +1,4 @@
-[![Demo Button](https://img.shields.io/badge/DEMO-blueviolet?style=for-the-badge&logo=replit)](<https://replit.com/@jgavrilo/javaPlanner?v=1>)
+[![Demo Button](https://img.shields.io/badge/DEMO-blueviolet?style=for-the-badge&logo=replit)](<https://replit.com/@jgavrilo/Schedule-Helper?v=1>)
 
 # Schedule Helper
 
@@ -31,7 +31,7 @@ To use Schedule Helper, simply follow the prompts to add and drop classes, creat
 
 ## Demo
 
-Check out the demo of Schedule Helper in action using the terminal [![here](https://img.shields.io/badge/DEMO-blueviolet?style=for-the-badge&logo=replit)](<https://replit.com/@jgavrilo/javaPlanner?v=1>)
+Check out the demo of Schedule Helper in action using the terminal [![here](https://img.shields.io/badge/DEMO-blueviolet?style=for-the-badge&logo=replit)](<https://replit.com/@jgavrilo/Schedule-Helper?v=1>)
 .
 
 ## Contributions
